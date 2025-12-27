@@ -113,7 +113,7 @@
                                 <td class="px-6 py-4 text-sm font-medium text-gray-900">{{ $member->nama_lengkap }}</td>
                                 <td class="px-6 py-4 text-sm text-gray-500">{{ $member->nik }}</td>
                                 <td class="px-6 py-4 text-sm text-gray-500">{{ $member->hubungan_keluarga }}</td>
-                                <td class="px-6 py-4 text-sm text-gray-500">{{ $member->tanggal_lahir->format('d M Y') }}</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">{{ $member->tanggal_lahir?->format('d M Y') ?? '-' }}</td>
                             </tr>
                             @endforeach
                         </tbody>
