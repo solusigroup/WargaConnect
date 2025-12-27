@@ -16,6 +16,13 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
+                    <x-nav-link :href="route('notifications.index')" :active="request()->routeIs('notifications.*')">
+                        {{ __('Notifikasi') }}
+                        @if(Auth::user()->unreadNotifications->count() > 0)
+                            <span class="ml-2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-600 rounded-full">{{ Auth::user()->unreadNotifications->count() }}</span>
+                        @endif
+                    </x-nav-link>
+
                     <x-nav-link :href="route('finance.index')" :active="request()->routeIs('finance.*')">
                         {{ __('Laporan Keuangan') }}
                     </x-nav-link>

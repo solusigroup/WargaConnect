@@ -19,6 +19,7 @@ class Payment extends Model
         'proof_path',
         'status',
         'paid_at',
+        'snap_token',
     ];
 
     protected $casts = [

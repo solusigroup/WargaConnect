@@ -49,6 +49,14 @@ Route::middleware('auth')->group(function () {
     // Financial Reports (Accessible to all verified users)
     Route::get('/finance', [App\Http\Controllers\FinancialReportController::class, 'index'])->name('finance.index');
 
+    // Notifications
+    Route::get('/notifications', [App\Http\Controllers\NotificationController::class, 'index'])->name('notifications.index');
+    Route::post('/notifications/{id}/read', [App\Http\Controllers\NotificationController::class, 'markAsRead'])->name('notifications.read');
+    Route::post('/notifications/read-all', [App\Http\Controllers\NotificationController::class, 'markAllRead'])->name('notifications.markAllRead');
+
+    // Complaints / Aduan
+    Route::resource('complaints', App\Http\Controllers\ComplaintController::class);
+
     Route::get('/verification/notice', function () {
         return view('auth.verify-notice'); // You need to create this view
     })->name('verification.notice');

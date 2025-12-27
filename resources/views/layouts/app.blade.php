@@ -101,5 +101,6 @@
                 </div>
             </nav>
         </div>
+        @yield('scripts')
     </body>
 </html>
