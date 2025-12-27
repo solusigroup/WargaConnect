@@ -13,9 +13,11 @@ Route::get('/dashboard', function () {
         $q->where('user_id', $user->id);
     })->latest()->take(5)->get();
     
-    $unpaidBill = $user->bills()->whereIn('status', ['unpaid', 'arrears'])->oldest()->first();
+    $unpaidBills = $user->bills()->whereIn('status', ['unpaid', 'arrears'])->get();
+    $totalArrears = $unpaidBills->sum('amount');
+    $unpaidBill = $unpaidBills->sortBy('year')->sortBy('month')->first();
 
-    return view('dashboard', compact('recentPayments', 'unpaidBill'));
+    return view('dashboard', compact('recentPayments', 'unpaidBill', 'totalArrears'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -36,7 +38,16 @@ Route::middleware('auth')->group(function () {
         Route::get('/verification', [App\Http\Controllers\Admin\UserVerificationController::class, 'index'])->name('verification.index');
         Route::post('/verification/{user}/approve', [App\Http\Controllers\Admin\UserVerificationController::class, 'approve'])->name('verification.approve');
         Route::post('/verification/{user}/reject', [App\Http\Controllers\Admin\UserVerificationController::class, 'reject'])->name('verification.reject');
+
+        // Contribution Categories
+        Route::resource('contribution-categories', App\Http\Controllers\Admin\ContributionCategoryController::class);
+
+        // Expenses
+        Route::resource('expenses', App\Http\Controllers\Admin\ExpenseController::class);
     });
+
+    // Financial Reports (Accessible to all verified users)
+    Route::get('/finance', [App\Http\Controllers\FinancialReportController::class, 'index'])->name('finance.index');
 
     Route::get('/verification/notice', function () {
         return view('auth.verify-notice'); // You need to create this view

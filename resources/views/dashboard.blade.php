@@ -20,7 +20,7 @@
 
     <div class="px-5 mt-6 space-y-8 pb-8">
         <!-- Total Tunggakan Card -->
-        @if($unpaidBill)
+        @if($totalArrears > 0)
         <div class="relative w-full rounded-[24px] overflow-hidden shadow-[0_8px_32px_rgba(247,56,89,0.25)] group transition-all duration-300 hover:scale-[1.02]">
             <!-- Background Gradient (Red/Warning) -->
             <div class="absolute inset-0 bg-gradient-to-br from-[#ff6b6b] to-[#ee5253]"></div>
@@ -38,12 +38,12 @@
                 
                 <div class="mt-2">
                     <p class="text-white/80 text-sm font-medium mb-1">Total yang harus dibayar</p>
-                    <h2 class="text-4xl font-extrabold tracking-tight">Rp {{ number_format($unpaidBill->amount, 0, ',', '.') }}</h2>
+                    <h2 class="text-4xl font-extrabold tracking-tight">Rp {{ number_format($totalArrears, 0, ',', '.') }}</h2>
                 </div>
 
                 <div class="mt-4">
                     <a href="{{ route('bill.show', $unpaidBill->id) }}" class="inline-flex w-full items-center justify-center gap-2 bg-white text-[#ee5253] py-3.5 px-4 rounded-xl font-bold text-sm shadow-lg hover:bg-gray-50 transition-colors uppercase tracking-wider">
-                        <span>Bayar Sekarang</span>
+                        <span>Bayar Tagihan Terlama</span>
                         <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
                     </a>
                 </div>

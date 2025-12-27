@@ -15,6 +15,20 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('finance.index')" :active="request()->routeIs('finance.*')">
+                        {{ __('Laporan Keuangan') }}
+                    </x-nav-link>
+
+                    @if(Auth::user()->role === 'admin')
+                    <x-nav-link :href="route('admin.contribution-categories.index')" :active="request()->routeIs('admin.contribution-categories.*')">
+                        {{ __('Atur Iuran') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('admin.expenses.index')" :active="request()->routeIs('admin.expenses.*')">
+                        {{ __('Input Pengeluaran') }}
+                    </x-nav-link>
+                    @endif
                 </div>
             </div>
 
