@@ -35,7 +35,7 @@ class ResidentController extends Controller
             abort(404);
         }
         
-        $resident->load(['warga.anggotaKeluarga', 'bills.payment']);
+        $resident->load(['warga.anggotaKeluarga', 'bills.payments']);
         
         return view('admin.residents.show', compact('resident'));
     }
