@@ -18,7 +18,7 @@ Route::get('/dashboard', function () {
     $unpaidBill = $unpaidBills->sortBy('year')->sortBy('month')->first();
 
     return view('dashboard', compact('recentPayments', 'unpaidBill', 'totalArrears'));
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified_user'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
