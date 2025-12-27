@@ -69,6 +69,48 @@
 
 
 
+        <!-- Admin Menu (Visible only to Admins) -->
+        @if(Auth::user()->role === 'admin')
+        <div>
+            <div class="flex justify-between items-end mb-4">
+                <h3 class="text-[#0d141b] dark:text-white text-lg font-bold">Admin Panel</h3>
+            </div>
+            <div class="grid grid-cols-4 gap-4">
+                <!-- Verifikasi Warga -->
+                <a href="{{ route('admin.verification.index') }}" class="flex flex-col items-center gap-2 group">
+                    <div class="h-16 w-16 rounded-[20px] bg-white dark:bg-[#1A2633] flex items-center justify-center shadow-[0_2px_12px_rgba(207,219,231,0.4)] dark:shadow-none group-hover:-translate-y-1 transition-transform border border-red-100 dark:border-red-900/30">
+                        <span class="material-symbols-outlined text-red-500 text-[28px]">verified_user</span>
+                    </div>
+                    <span class="text-xs font-semibold text-[#0d141b] dark:text-slate-300 text-center">Verifikasi</span>
+                </a>
+                
+                <!-- Pengumuman -->
+                <a href="{{ route('admin.announcements.index') }}" class="flex flex-col items-center gap-2 group">
+                    <div class="h-16 w-16 rounded-[20px] bg-white dark:bg-[#1A2633] flex items-center justify-center shadow-[0_2px_12px_rgba(207,219,231,0.4)] dark:shadow-none group-hover:-translate-y-1 transition-transform border border-[#e7edf3] dark:border-slate-700">
+                        <span class="material-symbols-outlined text-blue-500 text-[28px]">campaign</span>
+                    </div>
+                    <span class="text-xs font-semibold text-[#0d141b] dark:text-slate-300 text-center">Pengumuman</span>
+                </a>
+
+                <!-- Kategori Iuran -->
+                <a href="{{ route('admin.contribution-categories.index') }}" class="flex flex-col items-center gap-2 group">
+                    <div class="h-16 w-16 rounded-[20px] bg-white dark:bg-[#1A2633] flex items-center justify-center shadow-[0_2px_12px_rgba(207,219,231,0.4)] dark:shadow-none group-hover:-translate-y-1 transition-transform border border-[#e7edf3] dark:border-slate-700">
+                        <span class="material-symbols-outlined text-green-500 text-[28px]">category</span>
+                    </div>
+                    <span class="text-xs font-semibold text-[#0d141b] dark:text-slate-300 text-center">Master Iuran</span>
+                </a>
+
+                <!-- Pengeluaran -->
+                <a href="{{ route('admin.expenses.index') }}" class="flex flex-col items-center gap-2 group">
+                    <div class="h-16 w-16 rounded-[20px] bg-white dark:bg-[#1A2633] flex items-center justify-center shadow-[0_2px_12px_rgba(207,219,231,0.4)] dark:shadow-none group-hover:-translate-y-1 transition-transform border border-[#e7edf3] dark:border-slate-700">
+                        <span class="material-symbols-outlined text-orange-500 text-[28px]">receipt_long</span>
+                    </div>
+                    <span class="text-xs font-semibold text-[#0d141b] dark:text-slate-300 text-center">Pengeluaran</span>
+                </a>
+            </div>
+        </div>
+        @endif
+
         <!-- Quick Menu -->
         <div>
             <div class="flex justify-between items-end mb-4">
