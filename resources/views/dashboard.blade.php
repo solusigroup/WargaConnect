@@ -115,6 +115,14 @@
                     </div>
                     <span class="text-xs font-semibold text-[#0d141b] dark:text-slate-300 text-center">Data Warga</span>
                 </a>
+
+                <!-- Laporan Iuran -->
+                <a href="{{ route('admin.reports.monthly') }}" class="flex flex-col items-center gap-2 group">
+                    <div class="h-16 w-16 rounded-[20px] bg-white dark:bg-[#1A2633] flex items-center justify-center shadow-[0_2px_12px_rgba(207,219,231,0.4)] dark:shadow-none group-hover:-translate-y-1 transition-transform border border-[#e7edf3] dark:border-slate-700">
+                        <span class="material-symbols-outlined text-teal-500 text-[28px]">analytics</span>
+                    </div>
+                    <span class="text-xs font-semibold text-[#0d141b] dark:text-slate-300 text-center">Laporan Bulanan</span>
+                </a>
             </div>
         </div>
         @endif

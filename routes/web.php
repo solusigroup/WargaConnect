@@ -47,6 +47,8 @@ Route::middleware('auth')->group(function () {
 
         // Resident Database
         Route::resource('residents', App\Http\Controllers\Admin\ResidentController::class)->only(['index', 'show']);
+        // Reports
+        Route::get('/reports/monthly', [App\Http\Controllers\Admin\Reports\MonthlyContributionController::class, 'index'])->name('reports.monthly');
     });
 
     // Financial Reports (Accessible to all verified users)
