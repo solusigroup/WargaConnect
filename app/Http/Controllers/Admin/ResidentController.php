@@ -39,4 +39,17 @@ class ResidentController extends Controller
         
         return view('admin.residents.show', compact('resident'));
     }
+
+    public function updatePassword(Request $request, User $user)
+    {
+        $request->validate([
+            'password' => ['required', 'confirmed', \Illuminate\Validation\Rules\Password::defaults()],
+        ]);
+
+        $user->update([
+            'password' => \Illuminate\Support\Facades\Hash::make($request->password),
+        ]);
+
+        return back()->with('success', 'Password berhasil direset.');
+    }
 }

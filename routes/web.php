@@ -48,6 +48,7 @@ Route::middleware('auth')->group(function () {
 
         // Resident Database
         Route::resource('residents', App\Http\Controllers\Admin\ResidentController::class)->only(['index', 'show']);
+        Route::patch('/residents/{user}/password', [App\Http\Controllers\Admin\ResidentController::class, 'updatePassword'])->name('residents.update-password');
         // Reports
         Route::get('/reports/monthly', [App\Http\Controllers\Admin\Reports\MonthlyContributionController::class, 'index'])->name('reports.monthly');
 
