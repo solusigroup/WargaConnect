@@ -70,7 +70,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/verification/notice', function () {
         return view('auth.verify-notice'); // You need to create this view
-    })->name('verification.notice');
+    })->name('account.verification.notice');
 });
 
 // Midtrans Callback (Outside Auth)

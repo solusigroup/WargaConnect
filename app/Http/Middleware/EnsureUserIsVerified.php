@@ -17,7 +17,7 @@ class EnsureUserIsVerified
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::check() && Auth::user()->status !== 'verified') {
-            return redirect()->route('verification.notice');
+            return redirect()->route('account.verification.notice');
         }
 
         return $next($request);
