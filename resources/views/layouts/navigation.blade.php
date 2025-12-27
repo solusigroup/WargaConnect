@@ -35,6 +35,10 @@
                     <x-nav-link :href="route('admin.expenses.index')" :active="request()->routeIs('admin.expenses.*')">
                         {{ __('Input Pengeluaran') }}
                     </x-nav-link>
+
+                     <x-nav-link :href="route('admin.announcements.index')" :active="request()->routeIs('admin.announcements.*')">
+                        {{ __('Pengumuman') }}
+                    </x-nav-link>
                     @endif
                 </div>
             </div>

@@ -7,6 +7,17 @@
 
     <div class="py-12">
         <div class="max-w-md mx-auto sm:px-6 lg:px-8">
+            <!-- Alerts -->
+            @if (session('success'))
+                <div class="mb-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-xl relative" role="alert">
+                    <span class="block sm:inline">{{ session('success') }}</span>
+                </div>
+            @endif
+            @if (session('error'))
+                <div class="mb-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-xl relative" role="alert">
+                    <span class="block sm:inline">{{ session('error') }}</span>
+                </div>
+            @endif
             <!-- Bill Summary Card -->
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-xl mb-6 relative">
                 <div class="p-6">
