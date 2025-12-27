@@ -57,6 +57,11 @@ class User extends Authenticatable
         return $query->where('status', 'verified');
     }
 
+    public function bills()
+    {
+        return $this->hasMany(Bill::class);
+    }
+
     public function calculateArrears()
     {
         return $this->bills()->whereIn('status', ['unpaid', 'arrears'])->sum('amount');
