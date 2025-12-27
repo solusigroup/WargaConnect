@@ -50,6 +50,10 @@ Route::middleware('auth')->group(function () {
         Route::resource('residents', App\Http\Controllers\Admin\ResidentController::class)->only(['index', 'show']);
         // Reports
         Route::get('/reports/monthly', [App\Http\Controllers\Admin\Reports\MonthlyContributionController::class, 'index'])->name('reports.monthly');
+
+        // Bill Generation
+        Route::get('/bills/generate', [App\Http\Controllers\Admin\BillGenerationController::class, 'create'])->name('bills.generate');
+        Route::post('/bills/generate', [App\Http\Controllers\Admin\BillGenerationController::class, 'store'])->name('bills.store');
     });
 
     // Financial Reports (Accessible to all verified users)
