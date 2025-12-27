@@ -65,8 +65,7 @@
         </div>
         @endif
 
-            </div>
-        @endif
+
 
         <!-- Admin Menu (Visible only to Admins) -->
         @if(Auth::user()->role === 'admin')
