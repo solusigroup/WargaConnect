@@ -146,7 +146,7 @@
                             @foreach($latestBills as $bill)
                             <tr>
                                 <td class="px-6 py-4 text-sm text-gray-900">{{ $bill->month_name }} {{ $bill->year }}</td>
-                                <td class="px-6 py-4 text-sm text-gray-500">{{ $bill->kategoriIuran->nama_iuran ?? '-' }}</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">{{ $bill->kategoriIuran?->nama_iuran ?? '-' }}</td>
                                 <td class="px-6 py-4 text-sm text-gray-500">Rp {{ number_format($bill->amount, 0, ',', '.') }}</td>
                                 <td class="px-6 py-4">
                                     @if($bill->status == 'paid')
