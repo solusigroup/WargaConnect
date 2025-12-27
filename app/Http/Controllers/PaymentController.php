@@ -7,6 +7,8 @@ use App\Models\Payment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
+class PaymentController extends Controller
+{
     public function __construct()
     {
         \Midtrans\Config::$serverKey = config('midtrans.server_key');
