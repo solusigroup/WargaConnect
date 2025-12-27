@@ -9,14 +9,6 @@ use Illuminate\Support\Str;
 
 class PaymentController extends Controller
 {
-    public function __construct()
-    {
-        \Midtrans\Config::$serverKey = config('midtrans.server_key');
-        \Midtrans\Config::$isProduction = config('midtrans.is_production');
-        \Midtrans\Config::$isSanitized = config('midtrans.is_sanitized');
-        \Midtrans\Config::$is3ds = config('midtrans.is_3ds');
-    }
-
     public function show(Bill $bill)
     {
         // Check if there is a pending payment
@@ -26,6 +18,12 @@ class PaymentController extends Controller
 
     public function pay(Request $request, Bill $bill)
     {
+        // Debugging: Check Server Key (Do not log the full key in production)
+        if (empty(\Midtrans\Config::$serverKey)) {
+            \Illuminate\Support\Facades\Log::error('Midtrans Server Key is missing for bill ID: ' . $bill->id);
+            return redirect()->back()->with('error', 'Konfigurasi pembayaran bermasalah (Server Key Missing).');
+        }
+
         // Prevent duplicate pending payments
         $existingPayment = $bill->payments()->where('status', 'pending')->first();
         if ($existingPayment) {
@@ -65,11 +63,14 @@ class PaymentController extends Controller
         ];
 
         try {
+            \Illuminate\Support\Facades\Log::info('Initiating Midtrans Payment for TRX: ' . $transactionId);
+            
             $snapToken = \Midtrans\Snap::getSnapToken($params);
             $payment->update(['snap_token' => $snapToken]);
             
             return redirect()->back()->with('success', 'Silakan selesaikan pembayaran.')->with('snap_token', $snapToken);
         } catch (\Exception $e) {
+            \Illuminate\Support\Facades\Log::error('Midtrans Error for TRX ' . $transactionId . ': ' . $e->getMessage());
             return redirect()->back()->with('error', 'Gagal memproses pembayaran: ' . $e->getMessage());
         }
     }
