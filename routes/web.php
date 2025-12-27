@@ -62,4 +62,7 @@ Route::middleware('auth')->group(function () {
     })->name('verification.notice');
 });
 
+// Midtrans Callback (Outside Auth)
+Route::post('/midtrans/callback', [App\Http\Controllers\PaymentController::class, 'callback'])->name('midtrans.callback');
+
 require __DIR__.'/auth.php';
