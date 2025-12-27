@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('WargaConnect2025!'),
             'email_verified_at' => now(),
             'role' => 'admin',
+            'status' => 'verified', // Explicitly verify admin
         ]);
 
         // 3. Buat Data Profil Warga untuk Admin
@@ -51,6 +52,7 @@ class DatabaseSeeder extends Seeder
                 'email' => "warga{$i}@rt35.warga",
                 'password' => Hash::make('password'),
                 'role' => 'warga',
+                'status' => 'verified',
             ]);
 
             $warga = Warga::create([
