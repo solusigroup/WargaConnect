@@ -1,0 +1,15 @@
+<x-guest-layout>
+    <div class="mb-4 text-sm text-gray-600">
+        {{ __('Akun Anda sedang dalam proses verifikasi oleh Admin/RT setempat. Silakan tunggu hingga status Anda menjadi Verified untuk mengakses fitur lainnya.') }}
+    </div>
+
+    <div class="mt-4 flex items-center justify-between">
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+
+            <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                {{ __('Log Out') }}
+            </button>
+        </form>
+    </div>
+</x-guest-layout>
