@@ -44,6 +44,9 @@ Route::middleware('auth')->group(function () {
 
         // Expenses
         Route::resource('expenses', App\Http\Controllers\Admin\ExpenseController::class);
+
+        // Resident Database
+        Route::resource('residents', App\Http\Controllers\Admin\ResidentController::class)->only(['index', 'show']);
     });
 
     // Financial Reports (Accessible to all verified users)
