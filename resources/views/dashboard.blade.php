@@ -134,7 +134,7 @@
             </div>
             <div class="grid grid-cols-4 gap-4">
                 <!-- Menu Item 1: Iuran -->
-                <a href="#" class="flex flex-col items-center gap-2 group">
+                <a href="{{ route('bills.index') }}" class="flex flex-col items-center gap-2 group">
                     <div class="h-16 w-16 rounded-[20px] bg-white dark:bg-[#1A2633] flex items-center justify-center shadow-[0_2px_12px_rgba(207,219,231,0.4)] dark:shadow-none group-hover:-translate-y-1 transition-transform border border-[#e7edf3] dark:border-slate-700">
                         <span class="material-symbols-outlined text-primary text-[28px]">payments</span>
                     </div>

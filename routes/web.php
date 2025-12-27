@@ -26,6 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // Payment & Bills
+    Route::get('/bills', [App\Http\Controllers\User\BillController::class, 'index'])->name('bills.index');
     Route::get('/bill/{bill}', [App\Http\Controllers\PaymentController::class, 'show'])->name('bill.show');
     Route::post('/bill/{bill}/pay', [App\Http\Controllers\PaymentController::class, 'pay'])->name('bill.pay');
 
