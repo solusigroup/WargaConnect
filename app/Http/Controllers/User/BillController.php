@@ -27,8 +27,8 @@ class BillController extends Controller
     public function show(\App\Models\Bill $bill)
     {
         // Ensure user owns the bill or is admin
-        if ($bill->user_id !== Auth::id() && strtolower(Auth::user()->role) !== 'admin') {
-            abort(403, 'Unauthorized. Bill Owner: ' . $bill->user_id . ', Current User: ' . Auth::id() . ', Role: ' . Auth::user()->role);
+        if ($bill->user_id != Auth::id() && strtolower(Auth::user()->role) !== 'admin') {
+            abort(403);
         }
 
         // Check if there is a pending payment (manual or other)
