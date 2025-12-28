@@ -36,8 +36,14 @@
                         {{ __('Input Pengeluaran') }}
                     </x-nav-link>
 
-                     <x-nav-link :href="route('admin.announcements.index')" :active="request()->routeIs('admin.announcements.*')">
+                     <x-nav-link :href="route('admin.announcements.index')" :active="request()->routeIs('admin.announcements.*')" class="relative">
                         {{ __('Pengumuman') }}
+                        @if(\App\Models\Announcement::where('created_at', '>=', now()->subDay())->exists())
+                            <span class="absolute -top-1 -right-1 flex h-3 w-3">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+                            </span>
+                        @endif
                     </x-nav-link>
                     @endif
                 </div>

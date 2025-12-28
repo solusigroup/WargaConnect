@@ -188,6 +188,34 @@
             </div>
         </div>
 
+        <!-- Pengumuman Warga Section -->
+        <div class="mt-8">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-bold text-[#0d141b] dark:text-white flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+                    </svg>
+                    Pengumuman Terbaru
+                </h3>
+            </div>
+
+            @forelse($pengumuman ?? [] as $info)
+            <div class="bg-white dark:bg-[#1A2633] border-l-4 border-yellow-400 rounded-r-xl shadow-sm p-5 mb-4 hover:shadow-md transition-shadow">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <span class="text-xs font-semibold text-gray-400 dark:text-slate-500 uppercase">{{ $info->created_at->format('d M Y') }}</span>
+                        <h4 class="text-md font-bold text-[#0d141b] dark:text-white mt-1">{{ $info->title }}</h4>
+                        <p class="text-sm text-[#4c739a] dark:text-slate-400 mt-2 line-clamp-2">{{ $info->content }}</p>
+                    </div>
+                </div>
+            </div>
+            @empty
+            <div class="bg-gray-50 dark:bg-[#1A2633] rounded-xl p-8 text-center border-2 border-dashed border-gray-200 dark:border-slate-700">
+                <p class="text-gray-500 dark:text-slate-400 text-sm">Belum ada pengumuman saat ini.</p>
+            </div>
+            @endforelse
+        </div>
+
         <!-- Recent Activity -->
         <div>
             <div class="flex justify-between items-center mb-4">

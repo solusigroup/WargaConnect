@@ -17,7 +17,13 @@ Route::get('/dashboard', function () {
     $totalArrears = $unpaidBills->sum('amount');
     $unpaidBill = $unpaidBills->sortBy('year')->sortBy('month')->first();
 
-    return view('dashboard', compact('recentPayments', 'unpaidBill', 'totalArrears'));
+    // Ambil 5 pengumuman terbaru yang aktif
+    $pengumuman = \App\Models\Announcement::where('is_active', true)
+        ->latest()
+        ->take(5)
+        ->get();
+
+    return view('dashboard', compact('recentPayments', 'unpaidBill', 'totalArrears', 'pengumuman'));
 })->middleware(['auth', 'verified_user'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

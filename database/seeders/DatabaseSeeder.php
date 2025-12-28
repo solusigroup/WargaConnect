@@ -100,10 +100,22 @@ class DatabaseSeeder extends Seeder
             }
         }
 
-        // 5. Create dummy announcement
+        // 5. Create dummy announcements
         \App\Models\Announcement::create([
             'title' => 'Kerja Bakti Minggu Ini',
             'content' => 'Dimohon kehadiran seluruh warga untuk kerja bakti membersihkan selokan pada hari Minggu jam 07:00 WIB.',
+            'is_active' => true,
+        ]);
+
+        \App\Models\Announcement::create([
+            'title' => 'Jadwal Pemadaman Listrik',
+            'content' => 'PLN akan melakukan pemeliharaan jaringan listrik pada hari Senin, 30 Desember 2024 pukul 09:00-15:00 WIB. Mohon warga mempersiapkan diri.',
+            'is_active' => true,
+        ]);
+
+        \App\Models\Announcement::create([
+            'title' => 'Rapat Warga Bulanan',
+            'content' => 'Mengundang seluruh warga RT 35 untuk menghadiri rapat bulanan yang akan dilaksanakan pada hari Sabtu, 4 Januari 2025 pukul 19:30 WIB di Balai RT.',
             'is_active' => true,
         ]);
     }
