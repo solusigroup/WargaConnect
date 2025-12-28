@@ -27,7 +27,7 @@ class BillController extends Controller
     public function show(\App\Models\Bill $bill)
     {
         // Ensure user owns the bill or is admin
-        if ($bill->user_id !== Auth::id() && Auth::user()->role !== 'admin') {
+        if ($bill->user_id !== Auth::id() && strtolower(Auth::user()->role) !== 'admin') {
             abort(403);
         }
 
