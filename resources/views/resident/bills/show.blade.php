@@ -85,19 +85,19 @@
                                     <div>
                                         <h3 class="text-lg font-bold text-gray-800">{{ $bankSetting?->bank_name ?? 'Bank BCA' }}</h3>
                                         <div class="flex items-center mt-1">
-                                            <span class="text-2xl font-mono tracking-wider text-blue-700 font-bold" id="no_rek">{{ $bankSetting?->account_number ?? '8720991234' }}</span>
-                                            <button onclick="copyToClipboard('{{ $bankSetting?->account_number ?? '8720991234' }}')" type="button" class="ml-3 text-gray-400 hover:text-blue-600 transition-colors">
+                                            <span class="text-lg sm:text-xl font-mono tracking-wide text-blue-700 font-bold" id="no_rek">{{ $bankSetting?->account_number ?? '8720991234' }}</span>
+                                            <button onclick="copyToClipboard('{{ $bankSetting?->account_number ?? '8720991234' }}')" type="button" class="ml-2 text-gray-400 hover:text-blue-600 transition-colors">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                                                 </svg>
                                             </button>
                                         </div>
-                                        <p class="text-sm text-gray-500 mt-1 uppercase font-medium">a.n {{ $bankSetting?->account_holder ?? 'Bendahara RT 35' }}</p>
+                                        <p class="text-xs text-gray-500 mt-1 uppercase font-medium">a.n {{ $bankSetting?->account_holder ?? 'Bendahara RT 35' }}</p>
                                     </div>
                                 </div>
 
                                 <!-- E-Wallet Card -->
-                                <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow">
+                                <div class="bg-white border border-gray-200 rounded-2xl p-4 shadow-sm hover:shadow-md transition-shadow">
                                     <div class="flex justify-between items-start mb-4">
                                         <div class="bg-blue-500 p-2 rounded-lg">
                                             <span class="text-white font-bold text-xs">DANA</span>
@@ -107,14 +107,14 @@
                                     <div>
                                         <h3 class="text-lg font-bold text-gray-800">DANA</h3>
                                         <div class="flex items-center mt-1">
-                                            <span class="text-2xl font-mono tracking-wider text-blue-500 font-bold" id="no_dana">{{ $bankSetting?->dana_number ?? '081234567890' }}</span>
-                                            <button onclick="copyToClipboard('{{ $bankSetting?->dana_number ?? '081234567890' }}')" type="button" class="ml-3 text-gray-400 hover:text-blue-500 transition-colors">
+                                            <span class="text-lg sm:text-xl font-mono tracking-wide text-blue-500 font-bold" id="no_dana">{{ $bankSetting?->dana_number ?? '081234567890' }}</span>
+                                            <button onclick="copyToClipboard('{{ $bankSetting?->dana_number ?? '081234567890' }}')" type="button" class="ml-2 text-gray-400 hover:text-blue-500 transition-colors">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                                                 </svg>
                                             </button>
                                         </div>
-                                        <p class="text-sm text-gray-500 mt-1 uppercase font-medium">a.n Kas RT 35 (Dana RT)</p>
+                                        <p class="text-xs text-gray-500 mt-1 uppercase font-medium">a.n Kas RT 35 (Dana RT)</p>
                                     </div>
                                 </div>
                             </div>
