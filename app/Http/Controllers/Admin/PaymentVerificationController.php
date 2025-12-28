@@ -28,7 +28,7 @@ class PaymentVerificationController extends Controller
         $payment->update([
             'status' => 'success',
             'paid_at' => now(),
-            'catatan_bendahara' => 'Dikonfirmasi oleh Admin',
+            'catatan_bendahara' => 'Dikonfirmasi oleh Admin (' . \Illuminate\Support\Facades\Auth::user()->name . ')',
         ]);
 
         $payment->bill->update(['status' => 'paid']);

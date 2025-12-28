@@ -23,4 +23,17 @@ class BillController extends Controller
 
         return view('user.bills.index', compact('bills'));
     }
+
+    public function show(\App\Models\Bill $bill)
+    {
+        // Ensure user owns the bill
+        if ($bill->user_id !== Auth::id()) {
+            abort(403);
+        }
+
+        // Check if there is a pending payment (manual or other)
+        $payment = $bill->payments()->where('status', 'pending')->latest()->first();
+        
+        return view('resident.bills.show', compact('bill', 'payment'));
+    }
 }

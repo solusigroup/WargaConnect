@@ -9,7 +9,6 @@
         "php": "^8.2",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
-        "midtrans/midtrans-php": "*",
         "nativephp/electron": "*"
     },
     "require-dev": {

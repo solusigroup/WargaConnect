@@ -58,46 +58,7 @@
                 <div class="absolute -right-3 top-2/3 w-6 h-6 bg-gray-100 dark:bg-gray-900 rounded-full"></div>
             </div>
 
-            @if(session('snap_token') || (isset($payment) && $payment->status == 'pending' && $payment->snap_token))
-                @php
-                    $snapToken = session('snap_token') ?? $payment->snap_token;
-                @endphp
-                
-                <!-- Midtrans Payment Button -->
-                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-xl mb-6">
-                    <div class="p-6 text-center">
-                        <h4 class="font-semibold text-gray-900 dark:text-white mb-4">Pembayaran Tertunda Ditemukan</h4>
-                        <p class="text-sm text-gray-500 mb-6">Silakan selesaikan pembayaran Anda.</p>
-                        
-                        <button id="pay-button" class="w-full inline-flex justify-center py-3 px-4 border border-transparent rounded-xl shadow-sm text-sm font-semibold text-white bg-primary hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition duration-200">
-                            Bayar Sekarang
-                        </button>
-                    </div>
-                </div>
-
-                @section('scripts')
-                <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('midtrans.client_key') }}"></script>
-                <script type="text/javascript">
-                    document.getElementById('pay-button').onclick = function(){
-                        snap.pay('{{ $snapToken }}', {
-                            onSuccess: function(result){
-                                window.location.reload();
-                            },
-                            onPending: function(result){
-                                alert("Wating your payment!"); console.log(result);
-                            },
-                            onError: function(result){
-                                alert("Payment failed!"); console.log(result);
-                            },
-                            onClose: function(){
-                                alert('you closed the popup without finishing the payment');
-                            }
-                        });
-                    };
-                </script>
-                @endsection
-
-            @elseif($bill->status == 'unpaid' || $bill->status == 'arrears')
+            @if($bill->status == 'unpaid' || $bill->status == 'arrears')
             <!-- Payment Method Selection -->
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-xl">
                 <div class="p-6">

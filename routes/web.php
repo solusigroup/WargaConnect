@@ -27,8 +27,8 @@ Route::middleware('auth')->group(function () {
 
     // Payment & Bills
     Route::get('/bills', [App\Http\Controllers\User\BillController::class, 'index'])->name('bills.index');
-    Route::get('/bill/{bill}', [App\Http\Controllers\PaymentController::class, 'show'])->name('bill.show');
-    Route::post('/bill/{bill}/pay', [App\Http\Controllers\PaymentController::class, 'pay'])->name('bill.pay');
+    Route::get('/bill/{bill}', [App\Http\Controllers\User\BillController::class, 'show'])->name('bill.show');
+    // Route::post('/bill/{bill}/pay', [App\Http\Controllers\PaymentController::class, 'pay'])->name('bill.pay'); // Deprecated
 
     // Admin Routes
     Route::middleware(['verified_user'])->prefix('admin')->name('admin.')->group(function () {
@@ -87,7 +87,6 @@ Route::middleware('auth')->group(function () {
     })->name('account.verification.notice');
 });
 
-// Midtrans Callback (Outside Auth)
-Route::post('/midtrans/callback', [App\Http\Controllers\PaymentController::class, 'callback'])->name('midtrans.callback');
+
 
 require __DIR__.'/auth.php';
