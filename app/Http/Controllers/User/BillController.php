@@ -28,7 +28,7 @@ class BillController extends Controller
     {
         // Ensure user owns the bill or is admin
         if ($bill->user_id !== Auth::id() && strtolower(Auth::user()->role) !== 'admin') {
-            abort(403);
+            abort(403, 'Unauthorized. Bill Owner: ' . $bill->user_id . ', Current User: ' . Auth::id() . ', Role: ' . Auth::user()->role);
         }
 
         // Check if there is a pending payment (manual or other)
