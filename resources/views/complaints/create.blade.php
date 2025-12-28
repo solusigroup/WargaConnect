@@ -15,7 +15,7 @@
                         
                         <div>
                             <x-input-label for="title" :value="__('Judul Aduan')" />
-                            <x-text-input id="title" class="block mt-1 w-full" type="text" name="title" :value="old('title')" required autofocus placeholder="Contoh: Lampu Jalan Mati di Blok A" />
+                            <x-text-input id="title" class="block mt-1 w-full text-gray-900 dark:text-gray-100 bg-white dark:bg-gray-900 border-gray-300 dark:border-gray-700" type="text" name="title" :value="old('title')" required autofocus placeholder="Contoh: Lampu Jalan Mati di Blok A" />
                             <x-input-error :messages="$errors->get('title')" class="mt-2" />
                         </div>
 
