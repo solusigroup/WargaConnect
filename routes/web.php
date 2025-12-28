@@ -55,7 +55,21 @@ Route::middleware('auth')->group(function () {
         // Bill Generation
         Route::get('/bills/generate', [App\Http\Controllers\Admin\BillGenerationController::class, 'create'])->name('bills.generate');
         Route::post('/bills/generate', [App\Http\Controllers\Admin\BillGenerationController::class, 'store'])->name('bills.store');
+        
+        // Manual Payment Verification
+        Route::get('/payments/verification', [\App\Http\Controllers\Admin\PaymentVerificationController::class, 'index'])->name('payments.verification');
+        Route::post('/payments/{payment}/confirm', [\App\Http\Controllers\Admin\PaymentVerificationController::class, 'confirm'])->name('payments.confirm');
+        Route::post('/payments/{payment}/reject', [\App\Http\Controllers\Admin\PaymentVerificationController::class, 'reject'])->name('payments.reject');
+        
+        // Cash Settings (Bank Accounts)
+        Route::resource('bank-settings', \App\Http\Controllers\Admin\BankSettingController::class)->only(['index', 'store', 'update']);
+        
+        // Override Lunas
+        Route::post('/bills/{bill}/override-lunas', [\App\Http\Controllers\Admin\BillController::class, 'overrideLunas'])->name('bills.override-lunas');
     });
+
+    // Manual Payment Store
+    Route::post('/pembayaran', [\App\Http\Controllers\User\PaymentController::class, 'store'])->name('pembayaran.store');
 
     // Financial Reports (Accessible to all verified users)
     Route::get('/finance', [App\Http\Controllers\FinancialReportController::class, 'index'])->name('finance.index');

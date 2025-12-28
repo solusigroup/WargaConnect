@@ -20,6 +20,9 @@ class Payment extends Model
         'status',
         'paid_at',
         'snap_token',
+        'bukti_pembayaran',
+        'catatan_bendahara',
+        'is_override',
     ];
 
     protected $casts = [

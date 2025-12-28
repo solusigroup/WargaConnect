@@ -131,6 +131,22 @@
                     </div>
                     <span class="text-xs font-semibold text-[#0d141b] dark:text-slate-300 text-center">Laporan Bulanan</span>
                 </a>
+
+                <!-- Verifikasi Pembayaran Manual -->
+                <a href="{{ route('admin.payments.verification') }}" class="flex flex-col items-center gap-2 group">
+                    <div class="h-16 w-16 rounded-[20px] bg-white dark:bg-[#1A2633] flex items-center justify-center shadow-[0_2px_12px_rgba(207,219,231,0.4)] dark:shadow-none group-hover:-translate-y-1 transition-transform border border-[#e7edf3] dark:border-slate-700">
+                        <span class="material-symbols-outlined text-orange-600 text-[28px]">receipt_long</span>
+                    </div>
+                    <span class="text-xs font-semibold text-[#0d141b] dark:text-slate-300 text-center">Verifikasi Bayar</span>
+                </a>
+
+                <!-- Pengaturan Kas (Bank) -->
+                <a href="{{ route('admin.bank-settings.index') }}" class="flex flex-col items-center gap-2 group">
+                    <div class="h-16 w-16 rounded-[20px] bg-white dark:bg-[#1A2633] flex items-center justify-center shadow-[0_2px_12px_rgba(207,219,231,0.4)] dark:shadow-none group-hover:-translate-y-1 transition-transform border border-[#e7edf3] dark:border-slate-700">
+                        <span class="material-symbols-outlined text-gray-500 text-[28px]">account_balance</span>
+                    </div>
+                    <span class="text-xs font-semibold text-[#0d141b] dark:text-slate-300 text-center">Rekening Kas</span>
+                </a>
             </div>
         </div>
         @endif
