@@ -14,7 +14,7 @@ class ComplaintController extends Controller
      */
     public function index()
     {
-        if (Auth::user()->role === 'admin') {
+        if (strtolower(Auth::user()->role) === 'admin') {
             $complaints = Complaint::with('user')->latest()->paginate(10);
         } else {
             $complaints = Auth::user()->complaints()->latest()->paginate(10);
@@ -62,7 +62,7 @@ class ComplaintController extends Controller
     public function show(Complaint $complaint)
     {
         // Authorization check: Admin or Owner
-        if (Auth::user()->role !== 'admin' && $complaint->user_id !== Auth::id()) {
+        if (strtolower(Auth::user()->role) !== 'admin' && $complaint->user_id !== Auth::id()) {
             abort(403);
         }
 
@@ -75,7 +75,7 @@ class ComplaintController extends Controller
     public function update(Request $request, Complaint $complaint)
     {
         // Only Admin can update status
-        if (Auth::user()->role !== 'admin') {
+        if (strtolower(Auth::user()->role) !== 'admin') {
             abort(403);
         }
 

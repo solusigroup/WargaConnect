@@ -70,6 +70,11 @@ class User extends Authenticatable
         return $this->hasMany(Bill::class);
     }
 
+    public function complaints()
+    {
+        return $this->hasMany(Complaint::class);
+    }
+
     public function calculateArrears()
     {
         return $this->bills()->whereIn('status', ['unpaid', 'arrears'])->sum('amount');
