@@ -37,7 +37,7 @@
                     <div class="space-y-4">
                         <div class="flex justify-between items-center py-2 border-b border-gray-100 dark:border-gray-700">
                             <span class="text-gray-600 dark:text-gray-400">Jenis Iuran</span>
-                            <span class="font-medium text-gray-900 dark:text-gray-100">{{ $bill->kategoriIuran->nama_iuran }}</span>
+                            <span class="font-medium text-gray-900 dark:text-gray-100">{{ $bill->kategoriIuran?->nama_iuran ?? 'Iuran Bulanan' }}</span>
                         </div>
                         <div class="flex justify-between items-center py-2 border-b border-gray-100 dark:border-gray-700">
                             <span class="text-gray-600 dark:text-gray-400">Jumlah</span>
