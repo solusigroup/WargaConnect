@@ -64,19 +64,18 @@
                 <div class="p-6">
                     <h4 class="font-semibold text-gray-900 dark:text-white mb-4">Pilih Metode Pembayaran</h4>
                     
-                    <form action="{{ route('bill.pay', $bill) }}" method="POST">
-                        @csrf
-                        <div class="space-y-3">
-                            <!-- Manual Transfer Cards -->
-                            @php
-                                $bankSetting = \App\Models\BankSetting::first();
-                            @endphp
+                    
+                    <div class="space-y-3">
+                        <!-- Manual Transfer Cards -->
+                        @php
+                            $bankSetting = \App\Models\BankSetting::first();
+                        @endphp
 
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
-                                <!-- Bank Transfer Card -->
-                                <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow">
-                                    <div class="flex justify-between items-start mb-4">
-                                        <div class="bg-blue-100 p-2 rounded-lg">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+                            <!-- Bank Transfer Card -->
+                            <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="bg-blue-100 p-2 rounded-lg">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
                                             </svg>
