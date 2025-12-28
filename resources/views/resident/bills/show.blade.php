@@ -84,16 +84,16 @@
                                         <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Transfer Bank</span>
                                     </div>
                                     <div>
-                                        <h3 class="text-lg font-bold text-gray-800">{{ $bankSetting->bank_name ?? 'Bank BCA' }}</h3>
+                                        <h3 class="text-lg font-bold text-gray-800">{{ $bankSetting?->bank_name ?? 'Bank BCA' }}</h3>
                                         <div class="flex items-center mt-1">
-                                            <span class="text-2xl font-mono tracking-wider text-blue-700 font-bold" id="no_rek">{{ $bankSetting->account_number ?? '8720991234' }}</span>
-                                            <button onclick="copyToClipboard('{{ $bankSetting->account_number ?? '8720991234' }}')" type="button" class="ml-3 text-gray-400 hover:text-blue-600 transition-colors">
+                                            <span class="text-2xl font-mono tracking-wider text-blue-700 font-bold" id="no_rek">{{ $bankSetting?->account_number ?? '8720991234' }}</span>
+                                            <button onclick="copyToClipboard('{{ $bankSetting?->account_number ?? '8720991234' }}')" type="button" class="ml-3 text-gray-400 hover:text-blue-600 transition-colors">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                                                 </svg>
                                             </button>
                                         </div>
-                                        <p class="text-sm text-gray-500 mt-1 uppercase font-medium">a.n {{ $bankSetting->account_holder ?? 'Bendahara RT 35' }}</p>
+                                        <p class="text-sm text-gray-500 mt-1 uppercase font-medium">a.n {{ $bankSetting?->account_holder ?? 'Bendahara RT 35' }}</p>
                                     </div>
                                 </div>
 
@@ -108,8 +108,8 @@
                                     <div>
                                         <h3 class="text-lg font-bold text-gray-800">DANA</h3>
                                         <div class="flex items-center mt-1">
-                                            <span class="text-2xl font-mono tracking-wider text-blue-500 font-bold" id="no_dana">{{ $bankSetting->dana_number ?? '081234567890' }}</span>
-                                            <button onclick="copyToClipboard('{{ $bankSetting->dana_number ?? '081234567890' }}')" type="button" class="ml-3 text-gray-400 hover:text-blue-500 transition-colors">
+                                            <span class="text-2xl font-mono tracking-wider text-blue-500 font-bold" id="no_dana">{{ $bankSetting?->dana_number ?? '081234567890' }}</span>
+                                            <button onclick="copyToClipboard('{{ $bankSetting?->dana_number ?? '081234567890' }}')" type="button" class="ml-3 text-gray-400 hover:text-blue-500 transition-colors">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                                                 </svg>
